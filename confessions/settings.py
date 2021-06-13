@@ -60,7 +60,10 @@ ROOT_URLCONF = 'confessions.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'conf_frontend/build')
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,5 +146,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000', 'http://localhost:8000'
 ]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'conf_frontend/build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 django_heroku.settings(locals())
