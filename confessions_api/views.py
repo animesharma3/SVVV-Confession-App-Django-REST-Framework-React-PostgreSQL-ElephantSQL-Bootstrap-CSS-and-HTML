@@ -8,10 +8,10 @@ from . import models
 def apiOverview(request):
     api_urls = {
         'List': '/confessions/',
-        'Detail View': '/confessions/<int:pk>',
+        'Detail View': '/confessions/:id',
         'Create': '/confession/create',
-        'Update': '/confession/edit/<int:pk>',
-        'Delete': '/confession/delete/<int:pk>',
+        'Update': '/confession/edit/:id',
+        'Delete': '/confession/delete/:id',
     }
 
     return Response(api_urls)
