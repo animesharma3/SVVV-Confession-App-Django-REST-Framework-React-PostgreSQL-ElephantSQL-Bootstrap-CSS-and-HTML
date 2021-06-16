@@ -6,6 +6,7 @@ import Logo from './components/Logo'
 import Posts from './components/Posts'
 import NavSearchContainer from './components/NavSearchContainer'
 import NavIcons from './components/NavIcons'
+import UserProfile from './components/UserProfile'
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -40,7 +41,7 @@ const App = () => {
           <Posts confessions={confessions} />
         </section>
         <section className='col-lg-4'>
-
+        <UserProfile confessions={confessions} />
         </section>
       </div>
       </div>

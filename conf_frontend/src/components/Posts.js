@@ -8,8 +8,8 @@ const Posts = ({ confessions }) => {
                 {
                     confessions.map(
                         (confession) => (
-                            <div className="post">
-                                <Post key={confession.id} confession={confession} />
+                            <div className="post" key={parseInt(confession.id)}>
+                                <Post confession={confession} />
                                 <br />
                             </div>
                         )
