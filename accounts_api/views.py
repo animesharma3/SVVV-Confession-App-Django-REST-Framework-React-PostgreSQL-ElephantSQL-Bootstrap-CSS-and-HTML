@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 from . import models
 from . import serializers
+import json
 
 @api_view(['GET'])
 def userProfileList(request):
@@ -28,15 +29,15 @@ def AccountDetail(request, pk):
 def currentUser(request):
     user = request.user
     return Response({
-        'username': user.username,
-        'first_name': user.first_name,
-        'last_name': user.last_name,
-        'email': user.email,
-        'bio': user.profile.bio,
-        'profile_pic': user.profile.profile_pic,
-        'profile_pic': user.profile.phone_no,
-        'facebook_url': user.profile.facebook_url,
-        'instagram_url': user.profile.instagram_url,
-        'user_id': user.id,
-        'profile_id': user.profile.id,
+        'username': f"{user.username}",
+        'first_name': f"{user.first_name}",
+        'last_name': f"{user.last_name}",
+        'email': f"{user.email}",
+        'bio': f"{user.profile.bio}",
+        'profile_pic': f"{user.profile.profile_pic}",
+        'profile_pic': f"{user.profile.phone_no}",
+        'facebook_url': f"{user.profile.facebook_url}",
+        'instagram_url': f"{user.profile.instagram_url}",
+        'user_id': f"{user.id}",
+        'profile_id': f"{user.profile.id}",
     })

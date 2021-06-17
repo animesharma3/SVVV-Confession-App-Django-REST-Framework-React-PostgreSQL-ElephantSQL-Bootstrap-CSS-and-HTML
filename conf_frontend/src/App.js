@@ -17,21 +17,25 @@ const App = () => {
   
   useEffect(
     () => {
+      const fetchUserData = async () => {
+        const url = 'http://localhost:8000/api/accounts/current_user'
+        const response = await fetch(url)
+        const data = await response.json()
+        await setProfile(data)
+      }
+      fetchUserData()
+    }, []
+  )
+
+  useEffect(
+    () => {
       const fetchConfessions = async () => {
         const url = 'https://letsconfess.herokuapp.com/api/confessions/'
         const response = await fetch(url)
         const data = await response.json()
         await setConfessions(data)
       }
-      const fetchUserData = async () => {
-        const url = 'https://letsconfess.herokuapp.com/api/accounts/current_user'
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        await setProfile(data)
-      }
       fetchConfessions()
-      fetchUserData()
     }, []
   )
 
