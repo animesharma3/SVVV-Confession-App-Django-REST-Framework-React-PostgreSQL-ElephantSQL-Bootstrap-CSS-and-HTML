@@ -13,6 +13,12 @@ def userProfileList(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
+def userProfileDetail(request, pk):
+    profiles = models.UserProfile.objects.get(id=pk)
+    serializer = serializers.UserProfileSerializer(profiles, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
 def AccountDetail(request, pk):
     accounts = User.objects.get(id=pk)
     serializer = serializers.AccountsSerializer(accounts, many=False)
