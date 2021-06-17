@@ -11,3 +11,4 @@ tornado==6.1
 watchdog==2.1.2
 websocket-client==1.1.0
 whitenoise==5.2.0
+Pillow
