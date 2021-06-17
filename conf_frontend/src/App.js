@@ -18,7 +18,7 @@ const App = () => {
   useEffect(
     () => {
       const fetchUserData = async () => {
-        const url = 'http://localhost:8000/api/accounts/current_user'
+        const url = 'https://letsconfess.herokuapp.com/api/accounts/current_user'
         const response = await fetch(url)
         const data = await response.json()
         await setProfile(data)
