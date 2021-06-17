@@ -21,8 +21,10 @@ const App = () => {
         const response = await fetch(url)
         const data = await response.json()
         await setConfessions(data)
-        console.log(confessions)
       }
+      // const fetchUserData = async () => {
+      //   const url = ''
+      // }
       fetchConfessions()
     }, []
   )

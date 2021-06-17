@@ -9,6 +9,7 @@ class Confession(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name='confessions', blank=True)
+    bookmarks = models.ManyToManyField(User, related_name='bookmarks', blank=True)
 
     def total_likes(self):
         return self.likes.count()
