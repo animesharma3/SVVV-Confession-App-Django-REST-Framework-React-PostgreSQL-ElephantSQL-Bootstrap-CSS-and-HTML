@@ -1,5 +1,5 @@
 
-const UserProfile = () => {
+const UserProfile = (profile) => {
     const profilePicStyle = {
         width: "100px",
         height: "100px",
@@ -11,7 +11,7 @@ const UserProfile = () => {
             <div className="row">
                 <img src="https://avatars.githubusercontent.com/u/48760865?v=4" style={profilePicStyle} className='col-md-5' alt="" />
                 <div className="col-md-7 text-center">
-                    <h5 className="">Animesh Sharma</h5>
+                    <h5 className="">{profile.first_name}</h5>
                     <p className='text-secondary'>animesharma3</p>
                 </div> 
             </div>

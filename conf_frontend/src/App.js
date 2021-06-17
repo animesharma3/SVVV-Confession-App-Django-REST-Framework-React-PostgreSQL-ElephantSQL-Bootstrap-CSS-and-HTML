@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
   const [confessions, setConfessions] = useState([])
+  const [profile, setProfile] = useState({})
   
   useEffect(
     () => {
@@ -22,10 +23,15 @@ const App = () => {
         const data = await response.json()
         await setConfessions(data)
       }
-      // const fetchUserData = async () => {
-      //   const url = ''
-      // }
+      const fetchUserData = async () => {
+        const url = 'https://letsconfess.herokuapp.com/api/accounts/current_user'
+        const response = await fetch(url)
+        const data = await response.json()
+        console.log(data)
+        await setProfile(data)
+      }
       fetchConfessions()
+      fetchUserData()
     }, []
   )
 
@@ -43,7 +49,7 @@ const App = () => {
           <Posts confessions={confessions} />
         </section>
         <section className='col-lg-4'>
-        <UserProfile confessions={confessions} />
+          <UserProfile profile={profile} />
         </section>
       </div>
       </div>

@@ -7,7 +7,7 @@ url_validator = RegexValidator(url_regex, "Invalid URL")
 
 # Create your models here.
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name='profile')
     bio = models.TextField(blank=True)
     profile_pic = models.ImageField(null=True, blank=True, upload_to = 'images/profile/')
     phone_no = models.CharField(max_length=20, blank=True, null=True)
